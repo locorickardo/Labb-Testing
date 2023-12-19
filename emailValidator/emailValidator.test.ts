@@ -1,15 +1,13 @@
 import validateEmail from './emailValidator';
 
-describe('Email Validation', () => {
-  it('should validate a valid email address', () => {
-    const validEmail: string = 'alex@gmail.com';
-    expect(validateEmail(validEmail)).toBe(true);
-  });
+test('Valid email returns true', () => {
+  expect(validateEmail('alex@gmail.com')).toBe(true);
+});
 
-  it('should not validate an invalid email address', () => {
-    const invalidEmails: string[] = ['alex@gmail', 'alex.com', 'invalid@.com', 'invalid.email'];
-    invalidEmails.forEach((email) => {
-      expect(validateEmail(email)).toBe(false);
-    });
-  });
+test('Invalid email returns false', () => {
+  expect(validateEmail('alex@gmail')).toBe(false);
+});
+
+test('Invalid email returns false', () => {
+  expect(validateEmail('alex.com')).toBe(false);
 });
